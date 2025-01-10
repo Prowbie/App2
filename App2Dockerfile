@@ -1,0 +1,27 @@
+# Använd en officiell Node.js-bild som bas
+FROM node:16-alpine
+
+# Ange arbetskatalog i containern
+WORKDIR /frontend
+
+# Kopiera package.json och package-lock.json
+COPY package*.json ./
+
+# Installera beroenden
+RUN npm install
+
+# Kopiera resten av applikationskoden
+COPY . .
+
+# Bygg React-projektet
+RUN npm run build
+
+# Servera med en lättviktig webbserver (t.ex. serve)
+RUN npm install -g serve
+
+# Ange standardporten för applikationen
+EXPOSE 3000
+
+# Starta applikationen
+CMD ["serve", "-s", "build"]
+
