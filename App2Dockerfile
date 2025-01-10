@@ -1,5 +1,5 @@
 # Använd en officiell Node.js-bild som bas
-FROM node:16-alpine
+FROM node:20-alpine
 
 # Ange arbetskatalog i containern
 WORKDIR /frontend
