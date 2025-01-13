@@ -20,7 +20,7 @@ RUN npm run build
 RUN npm install -g serve
 
 # Ange standardporten för applikationen
-EXPOSE 3000
+EXPOSE 3001
 
 # Starta applikationen
 CMD ["serve", "-s", "build"]
